@@ -9,11 +9,12 @@
 <body>
     <div class="gallery-wrap">
         <img src="./images/back.png" alt="" id="backBtn">
-    </div>
+    
     <div class="gallery">
+
         <div>
-            <span><img src="./images/image-1.png" alt=""></span>
-            <span><img src="./images/image-2.png" alt=""></span>
+            <span><img src="./images/image-1.jpg" alt=""></span>
+            <span><img src="./images/jk.jpg" alt=""></span>
             <span><img src="./images/image-3.png" alt=""></span>
         </div>
         <div>
@@ -21,9 +22,36 @@
             <span><img src="./images/image-5.png" alt=""></span>
             <span><img src="./images/image-6.png" alt=""></span>
         </div>
-        
+
+        </div>
+
+        <img src="./images/next.png" alt="" id="nextBtn" >
     </div>
-    <img src="./images/next.png" id="nextBtn" alt="">
-    </div>
+    
+
+    <script>
+
+        let scrollContainer = document.querySelector(".gallery");
+        let backBtn = document.getElementById("backBtn");
+        let nextBtn = document.getElementById("nextBtn");
+
+        scrollContainer.addEventListener("wheel",(evt)=>{
+            evt.preventDefault();
+            scrollContainer.scrollLeft += evt.deltaY;
+            scrollContainer.style.scrollBehavior = "auto";
+
+        })
+        nextBtn.addEventListener("click",()=>{
+            
+            scrollContainer.style.scrollBehavior = "smooth";
+            scrollContainer.scrollLeft += 900;
+        })
+        backBtn.addEventListener("click",()=>{
+            
+            scrollContainer.style.scrollBehavior = "smooth";
+            scrollContainer.scrollLeft -= 900;
+        })
+
+    </script>
 </body>
 </html>
